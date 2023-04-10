@@ -10,5 +10,6 @@ routes.post("/user/auth", userController.auth);
 
 const serviceController = new ServiceController();
 routes.post("/service", serviceController.create);
+routes.delete("/service/:id", serviceController.delete);
 
 export { routes };

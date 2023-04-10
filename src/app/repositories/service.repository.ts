@@ -23,7 +23,8 @@ class ServiceRepository {
 
         return await this.client.query({
             sql:/*sql*/`
-                DELETE FROM "tb_service" WHERE id = $1
+                DELETE FROM "tb_service" WHERE id = $1 
+                RETURNING *
             `,
             params: [ id ]
         });
