@@ -7,11 +7,11 @@ interface IUser {
 }
 
 class User {
-    private id: number | undefined;
-    private firstName: string;
-    private lastName: string;
-    private email: string;
-    private password: string;
+    public id: number | undefined;
+    public firstName: string;
+    public lastName: string;
+    public email: string;
+    public password: string;
 
     constructor(props: IUser) {
         this.id = props?.id ?? undefined;
