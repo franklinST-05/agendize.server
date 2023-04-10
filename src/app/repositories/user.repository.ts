@@ -1,4 +1,4 @@
-import { IClient } from "../../settings/database";
+import { IClient } from "../../settings/database/infra";
 import { IUser } from "../models/user.model";
 
 class UserRepository {
@@ -20,6 +20,16 @@ class UserRepository {
             params: [ user.firstName, user.lastName, user.email, user.password ]
         });
 
+    }
+
+    async findByEmail(email: IUser["email"]) {
+        
+        return await this.client.query({
+            sql: /*sql*/`
+                SELECT FROM "tb_user" WHERE "email" = $1;
+            `,
+            params: [ email ]
+        });
     }
 
 }

@@ -1,7 +1,5 @@
-import { clientData } from "../index";
-import { PgClient } from "../pg";
+import { client } from "../../index";
 
-const client = new PgClient(clientData);
 client.connect();
 
 client.query({
