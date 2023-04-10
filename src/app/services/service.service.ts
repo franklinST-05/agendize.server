@@ -15,13 +15,19 @@ class ServiceService {
         };
     }
 
-    async deleteById(id: number) {
+    async findByUser(userId: number) {
+        return await repository.findAllByUserId(userId);
+    }
+
+    async findAll() {
+        return await repository.findAll();
+    }
+
+    async deleteById(id: number, userId: number) {
         try {
-            const data = await repository.deleteById(id);
-            console.log(data);
+            const data = await repository.deleteById(id, userId);
             return data;
         } catch (error) {
-            console.log(error);
             throw new Error("Ocorreu algum erro verifique se esse 'id' existe");
         }
     }

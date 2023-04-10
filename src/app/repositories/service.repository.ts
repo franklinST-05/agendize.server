@@ -19,14 +19,31 @@ class ServiceRepository {
         });
     }
 
-    async deleteById(id: number) {
+    async deleteById(id: number, userId: number) {
 
         return await this.client.query({
             sql:/*sql*/`
-                DELETE FROM "tb_service" WHERE id = $1 
+                DELETE FROM "tb_service" WHERE "id" = $1 AND "user_id" = $2 
                 RETURNING *
             `,
-            params: [ id ]
+            params: [ id, userId ]
+        });
+    }
+
+    async findAllByUserId(userId: number) {
+        return await this.client.query({
+            sql: /*sql*/`
+                SELECT * FROM "tb_service" WHERE "user_id" = $1
+            `,
+            params: [ userId ]
+        });
+    }
+
+    async findAll() {
+        return await this.client.query({
+            sql: /*sql*/`
+                SELECT * FROM "tb_service"
+            `,
         });
     }
 

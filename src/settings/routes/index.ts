@@ -10,6 +10,8 @@ routes.post("/user", userController.create);
 routes.post("/user/auth", userController.auth);
 
 const serviceController = new ServiceController();
+routes.get("/services", serviceController.findAll);
+routes.get("/user/services", isAuthenticated, serviceController.findByUser);
 routes.post("/service", isAuthenticated, serviceController.create);
 routes.delete("/service/:id", isAuthenticated, serviceController.delete);
 
