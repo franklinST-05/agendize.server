@@ -5,5 +5,6 @@ const routes = Router();
 
 const userController = new UserController();
 routes.post("/user", userController.create);
+routes.post("/user/auth", userController.auth);
 
 export { routes };

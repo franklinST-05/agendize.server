@@ -26,7 +26,7 @@ class UserRepository {
         
         return await this.client.query({
             sql: /*sql*/`
-                SELECT FROM "tb_user" WHERE "email" = $1;
+                SELECT * FROM "tb_user" WHERE "email" = $1;
             `,
             params: [ email ]
         });
