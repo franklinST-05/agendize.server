@@ -4,7 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "tsx watch src/main.ts"
+    "dev": "tsx watch src/main.ts",
+    "build:data": "tsx src/settings/database/build/index.ts"
   },
   "dependencies": {
     "dotenv": "^16.0.3",

@@ -18,6 +18,15 @@ export interface IClientData {
     ssl: boolean,
 }
 
+export const clientData: IClientData = {
+    database: "test",
+    host: "127.0.0.1",
+    password: "data_pass",
+    port: 5432,
+    ssl: false,
+    user: "postgres",
+};
+
 export interface IClient {
     query(query: IQuery): Promise<IQueryResponse>;
     connect(): Promise<void>;
