@@ -5,15 +5,19 @@ const service = new ServiceService();
 
 class ServiceController {
     async create(req: Request, res: Response) {
-        const data = await service.create(req.body);
+        const data = await service.create({
+            title: req.body.title,
+            description: req.body.description,
+            userId: req.auth_user.id,
+        });
         return res.json(data);
     }
 
     async delete(req: Request, res: Response) {
         const { id } = req.params;
-        
+
         const deleted = await service.deleteById(Number(id));
-        if(deleted.rowCount > 0) {return res.status(200).send();}
+        if (deleted.rowCount > 0) { return res.status(200).send(); }
 
         return res.status(500).send();
     }

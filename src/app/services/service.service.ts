@@ -1,4 +1,3 @@
-import { getSystemErrorMap } from "util";
 import { client } from "../../settings/database";
 import { IService } from "../models/service.model";
 import { ServiceRepository } from "../repositories/service.repository";
