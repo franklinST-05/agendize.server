@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "tsx watch src/main.ts",
-    "build:data": "tsx src/settings/database/build/index.ts"
+    "build:data": "tsx src/settings/database/infra/build/index.ts"
   },
   "dependencies": {
     "dotenv": "^16.0.3",
